@@ -1,0 +1,430 @@
+if getgenv().gui == true then
+
+
+if game.PlaceId == 2788229376 then
+
+
+    
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+colors = {
+SchemeColor = Color3.fromRGB(0,0,0),
+Background = Color3.fromRGB(0, 0, 0),
+Header = Color3.fromRGB(0, 0, 0),
+TextColor = Color3.fromRGB(255,0,0),
+ElementColor = Color3.fromRGB(20, 20, 20)
+}
+
+Window = Library.CreateLib("NoobieGui", colors)
+
+Main = Window:NewTab("  Main Info   ")
+MainSection = Main:NewSection("Welcome to NoobieGui")
+MainSection = Main:NewSection("Made by Noobie#0002")
+
+
+MainSection:NewButton("Credits ", "", function(v)
+
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Owned by";
+        Text = "Noobie#9999";})
+        Duration = 20;
+    end)
+    
+    MainSection:NewButton("Discord Server ", "Already being Copied On your Clipboard", function(v)
+        game.StarterGui:SetCore("SendNotification", {
+            Title = "Copied Link!";
+            Text = "Make sure to join the discord Discord Server!";
+            Icon = ""})
+            Duration = 20;
+        setclipboard("")
+        end)
+    
+local Teleports = Window:NewTab("Teleports")
+local TeleportsMain = Teleports:NewSection("Teleports, All listed below!")
+        
+TeleportsMain:NewButton("Admin", "", function(v)
+
+
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-872.453674, -32.6421318, -532.476379, 0.999682248, -1.36019978e-08, 0.0252073351, 1.33811247e-08, 1, 8.93094043e-09, -0.0252073351, -8.59080007e-09, 0.999682248)
+
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Teleported";
+        Text = "To Admin";})
+        Duration = 5;
+    end)
+
+TeleportsMain:NewButton("Club", "", function (v)
+
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-264.434479, 0.0355005264, -430.854736, -0.999828756, 9.58909574e-09, -0.0185054261, 9.92017934e-09, 1, -1.77993904e-08, 0.0185054261, -1.79799198e-08, -0.999828756)
+    
+
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Teleported";
+        Text = "To Club";})
+        Duration = 5;
+end)
+
+TeleportsMain:NewButton("Train", "", function (v)
+
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(591.396118, 34.5070686, -146.159561, 0.0698467195, -4.91725913e-08, -0.997557759, 5.03374231e-08, 1, -4.57684664e-08, 0.997557759, -4.70177071e-08, 0.0698467195)
+
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Teleported";
+        Text = "To Train";})
+        Duration = 5;
+end)
+
+TeleportsMain:NewButton("Vault", "", function (v)
+
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-495.485901, 23.1428547, -284.661713, -0.0313318223, -4.10440322e-08, 0.999509037, 2.18453966e-08, 1, 4.17489829e-08, -0.999509037, 2.31427428e-08, -0.0313318223)
+    
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Teleported";
+        Text = "To Vault";})
+        Duration = 5;
+end)
+
+TeleportsMain:NewButton("Bank", "", function (v)
+
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-396.988922, 21.7570763, -293.929779, -0.102468058, -1.9584887e-09, -0.994736314, 7.23731564e-09, 1, -2.71436984e-09, 0.994736314, -7.47735651e-09, -0.102468058)
+    
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Teleported";
+        Text = "To Bank";})
+        Duration = 5;
+end)
+
+local Combat = Window:NewTab("Combat")
+local CombatMain = Combat:NewSection("Combat, all listed below.")
+
+CombatMain:NewButton("AimLock, E to toggle", "", function (v)
+
+    -- main aimlock settings
+local configs = {
+    main = {
+        enabled = true,
+        aimlockkey = "e",
+        prediction = 0.1226781,
+        aimpart = 'HumanoidRootPart', -- Head, UpperTorso, HumanoidRootPart, LowerTorso
+        notifications = true
+    }
+}
+
+if configs.main.notifications == true then
+                game.StarterGui:SetCore("SendNotification", {
+                    Title = "NoobieLock",
+                    Text = "Loaded."
+                })
+	    end 
+
+-- box / marker settings
+
+local boxsettings = {
+    box = {
+        Showbox = true,
+
+        boxsize = Vector3.new(3.3, 3, 2.8), -- Box Size
+        markercolor = Color3.fromRGB(1, 120, 145), -- Marrker Color
+        markersize = UDim2.new(1, 0, 3, 0) -- Marker Size
+    }
+}
+
+-- dont mess with anything below
+local box = Instance.new("Part", game.Workspace)
+
+local Mouse = game.Players.LocalPlayer:GetMouse()
+
+function makemarker(Parent, Adornee, Color, Size, Size2)
+    local box = Instance.new("BillboardGui", Parent)
+    box.Name = "PRIVATE-REWRITE!"
+    box.Adornee = Adornee
+    box.Size = UDim2.new(Size, Size2, Size, Size2)
+    box.AlwaysOnTop = true
+
+    local a = Instance.new("Frame", box)
+    a.Size = boxsettings.box.markersize
+    a.BackgroundColor3 = Color
+
+    local g = Instance.new("UICorner", a)
+    g.CornerRadius = UDim.new(50, 25)
+    return (box)
+end
+
+local Plr
+Mouse.KeyDown:Connect(function(KeyPressed)
+    if KeyPressed == (configs.main.aimlockkey) then
+        if configs.main.enabled == true then
+            configs.main.enabled = false
+            if configs.main.notifications == true then
+                Plr = FindClosestUser()
+                game.StarterGui:SetCore("SendNotification", {
+                    Title = "NoobieLock",
+                    Text = "Unlocked;"
+                })
+            end
+        else
+            Plr = FindClosestUser()
+            configs.main.enabled = true
+            if configs.main.notifications == true then
+                game.StarterGui:SetCore("SendNotification", {
+                    Title = "NoobieLock",
+                    Text = "Locked On;  " .. tostring(Plr.Character.Humanoid.DisplayName)
+                })
+            end
+        end
+    end
+end)
+
+local data = game.Players:GetPlayers()
+function noob(player)
+    local character
+    repeat
+        wait()
+    until player.Character
+    local handler = makemarker(guimain, player.Character:WaitForChild(configs.main.aimpart),
+        Color3.fromRGB(107, 184, 255), 0.10, 8)
+    handler.Name = player.Name
+    player.CharacterAdded:connect(function(Char)
+        handler.Adornee = Char:WaitForChild("HumanoidRootPart")
+    end)
+end
+
+for i = 1, #data do
+    if data[i] ~= game.Players.LocalPlayer then
+        noob(data[i])
+    end
+end
+
+game.Players.PlayerAdded:connect(function(Player)
+    noob(Player)
+end)
+
+spawn(function()
+    box.Anchored = true
+    box.CanCollide = false
+    box.Size = boxsettings.box.boxsize
+    if boxsettings.box.Showbox == true then
+        box.Transparency = 0.70
+    else
+        box.Transparency = 1
+    end
+    makemarker(box, box, boxsettings.box.markercolor, 0.40, 1)
+end)
+
+function FindClosestUser()
+    local closestPlayer
+    local ShortestDistance = 300
+
+    for i, v in pairs(game.Players:GetPlayers()) do
+        if v ~= game.Players.LocalPlayer and v.Character and v.Character:FindFirstChild("Humanoid") and
+            v.Character.Humanoid.Health ~= 0 and v.Character:FindFirstChild("HumanoidRootPart") then
+            local pos = game:GetService "Workspace".CurrentCamera:WorldToViewportPoint(v.Character.PrimaryPart.Position)
+            local magnitude = (Vector2.new(pos.X, pos.Y) -
+                                  Vector2.new(game.Players.LocalPlayer:GetMouse().X,
+                    game.Players.LocalPlayer:GetMouse().Y)).magnitude
+            if magnitude < ShortestDistance then
+                closestPlayer = v
+                ShortestDistance = magnitude
+            end
+        end
+    end
+    return closestPlayer
+end
+
+game:GetService "RunService".Stepped:connect(function()
+    if configs.main.enabled and Plr.Character and Plr.Character:FindFirstChild("HumanoidRootPart") then
+        box.CFrame = CFrame.new(Plr.Character[configs.main.aimpart].Position +
+                                    (Plr.Character.UpperTorso.Velocity * configs.main.prediction))
+    else
+        box.CFrame = CFrame.new(0, 9999, 0)
+    end
+end)
+
+repeat
+    wait()
+until game:IsLoaded()
+local mt = getrawmetatable(game)
+local old = mt.__namecall
+setreadonly(mt, false)
+mt.__namecall = newcclosure(function(...)
+    local args = {...}
+    if configs.main.enabled and getnamecallmethod() == "FireServer" and args[2] == "UpdateMousePos" then
+        args[3] = Plr.Character[configs.main.aimpart].Position +
+                      (Plr.Character[configs.main.aimpart].Velocity * configs.main.prediction)
+        return old(unpack(args))
+    end
+    return old(...)
+end)
+
+
+
+end)
+
+CombatMain:NewButton("Shazam Fly", "", function (v)
+    
+    repeat wait()
+    until game.Players.LocalPlayer and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:findFirstChild("Head") and game.Players.LocalPlayer.Character:findFirstChild("Humanoid")
+    local mouse = game.Players.LocalPlayer:GetMouse()
+    repeat wait() until mouse
+    local plr = game.Players.LocalPlayer
+    local torso = plr.Character.Head
+    local flying = false
+    local deb = true
+    local ctrl = {f = 0, b = 0, l = 0, r = 0}
+    local lastctrl = {f = 0, b = 0, l = 0, r = 0}
+    local maxspeed = 5000
+    local speed = 5000
+    local hover = Instance.new("Animation", game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid"))hover.Name="Hover"hover.AnimationId="rbxassetid://3541114300"
+    local fly = Instance.new("Animation", game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid"))fly.Name="Fly"fly.AnimationId = "rbxassetid://3541044388"
+    function Fly()
+    local bg = Instance.new("BodyGyro", torso)
+    bg.P = 9e4
+    bg.maxTorque = Vector3.new(9e9, 9e9, 9e9)
+    bg.cframe = torso.CFrame
+    local bv = Instance.new("BodyVelocity", torso)
+    bv.velocity = Vector3.new(0,0.1,0)
+    bv.maxForce = Vector3.new(9e9, 9e9, 9e9)
+    repeat wait()
+    plr.Character.Humanoid.PlatformStand = true
+    if ctrl.l + ctrl.r ~= 100000 or ctrl.f + ctrl.b ~= 10000 then
+    speed = speed+.0+(speed/maxspeed)
+    if speed > maxspeed then
+    speed = maxspeed
+    end
+    elseif not (ctrl.l + ctrl.r ~= 5 or ctrl.f + ctrl.b ~= 5) and speed ~= 5 then
+    speed = speed-5
+    if speed > 5 then
+    speed = -2
+    end
+    end
+    if (ctrl.l + ctrl.r) ~= 5 or (ctrl.f + ctrl.b) ~= 5 then
+    bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (ctrl.f+ctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(ctrl.l+ctrl.r,(ctrl.f+ctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
+    lastctrl = {f = ctrl.f, b = ctrl.b, l = ctrl.l, r = ctrl.r}
+    elseif (ctrl.l + ctrl.r) == 5 and (ctrl.f + ctrl.b) == 5 and speed ~= 5 then
+    bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lastctrl.f+lastctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lastctrl.l+lastctrl.r,(lastctrl.f+lastctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
+    else
+    bv.velocity = Vector3.new(0,0.1,0)
+    end
+    bg.cframe = game.Workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((ctrl.f+ctrl.b)*50*speed/maxspeed),0,0)
+    until not flying
+    for _, v in next, game.Players.LocalPlayer.Character:FindFirstChildOfClass('Humanoid'):GetPlayingAnimationTracks() do
+    if (v.Animation.AnimationId:match("rbxassetid")) then
+    v:Stop()
+    end
+    end
+    ctrl = {f = 0, b = 0, l = 0, r = 0}
+    lastctrl = {f = 0, b = 0, l = 0, r = 0}
+    speed = 5
+    bg:Destroy()
+    bv:Destroy()
+    plr.Character.Humanoid.PlatformStand = false
+    end
+    mouse.KeyDown:connect(function(key)
+    if key:lower() == "c" then
+    if flying then flying = false
+    else
+    flying = true
+    plr.Character.Humanoid:LoadAnimation(hover):Play()
+    Fly()
+    end
+    elseif key:lower() == "w" then
+    ctrl.f = 20
+    wait()
+    if flying == true then
+    plr.Character.Humanoid:LoadAnimation(fly):Play()
+    end
+    elseif key:lower() == "s" then
+    ctrl.b = -20
+    elseif key:lower() == "a" then
+    ctrl.l = -20
+    elseif key:lower() == "d" then
+    ctrl.r = 20
+    end
+    end)
+    mouse.KeyUp:connect(function(key)
+    if key:lower() == "w" then
+    ctrl.f = 0
+    wait()
+    if flying == true then
+    plr.Character.Humanoid:LoadAnimation(hover):Play()
+    end
+    elseif key:lower() == "s" then
+    ctrl.b = 0
+    wait()
+    if flying == true then
+    plr.Character.Humanoid:LoadAnimation(hover):Play()
+    end
+    elseif key:lower() == "a" then
+    ctrl.l = 0
+    wait()
+    if flying == true then
+    plr.Character.Humanoid:LoadAnimation(hover):Play()
+    end
+    elseif key:lower() == "d" then
+    ctrl.r = 0
+    wait()
+    if flying == true then
+    plr.Character.Humanoid:LoadAnimation(hover):Play()
+    end
+    end
+    end)
+    Fly()
+
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Shazam Fly Enabled";
+        Text = "C to toggle";})
+        Duration = 5;  
+end)
+
+
+
+CombatMain:NewButton("Godmode", "", function (v)
+
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Godmode";
+        Text = "Status : Enabled";})
+        Duration = 5;
+
+end)
+
+local AutoBuy = Window:NewTab("Gun Teleports")
+local AutoBuyMain = AutoBuy:NewSection("Gun Teleports, all listed below!")
+
+AutoBuyMain:NewButton("DB Teleport", "", function (v)
+
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Teleported";
+        Text = "To Db";})
+        Duration = 5;
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1039, 22, -258)
+end)
+
+AutoBuyMain:NewButton("Rev Teleport", "", function (v)
+
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Teleported";
+        Text = "To Rev";})
+        Duration = 5;   
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-639, 22, -120)
+end)
+
+AutoBuyMain:NewButton("High Armor Teleport", "", function (v)
+
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Teleported";
+        Text = "To High Armor";})
+        Duration = 5;
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-935, -29, 567)
+end)
+
+AutoBuyMain:NewButton("Medium Armor Teleport", "", function (v)
+
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Teleported";
+        Text = "To Medium Armor";})
+        Duration = 5;
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-607, 10, -788)
+        
+        end)
+    end
+end
